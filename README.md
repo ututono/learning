@@ -1,2 +1,2 @@
 # learning
-something new
+一只正在学习的设计狗
