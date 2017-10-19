@@ -1,0 +1,45 @@
+package 实验二;
+
+public class Cricle {
+	private static double x,y,radius;
+	public Circle(double x,double y){
+		this.x=x;
+		this.y=y;
+		this.radius=1;
+	}
+	public double getX(){
+		return x;
+	}
+	public void setX(double x){
+		this.x=x;
+	}
+	public double getY(){
+		return y;
+	}
+	public void setY(double y){
+		this.y=y;
+	}
+	public double getradius(){
+		return radius;
+	}
+	public void setradius(double radius){
+		this.radius=radius;
+	}
+}
+class SubCircle extends Cricle{
+	private static double radius;
+	SubCircle(double x,double y,double radius){
+		super(x,y);
+		this.radius=radius;
+	}
+	public void setradius(double radius){
+		this.radius=radius;
+	}
+	public getradius(){
+		return radius;
+	}
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		SubCircle C1=new SubCircle(2,1,3);
+	}
+}
