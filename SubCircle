@@ -1,45 +1,19 @@
 package 实验二;
 
-public class Circle {
-	private static double x,y,radius;
-	public Circle(double x,double y){
-		this.x=x;
-		this.y=y;
-		this.radius=1;
+
+class sonCircle extends Circle{
+	
+	sonCircle(double x,double y,double radius){
+		super(x,y,radius);
+		   //子类的this调用的是子类的radius还是超类的？->若子类有声明，则调用
 	}
-	public double getX(){
-		return x;
-	}
-	public void setX(double x){
-		this.x=x;
-	}
-	public double getY(){
-		return y;
-	}
-	public void setY(double y){
-		this.y=y;
-	}
-	public double getradius(){
-		return radius;
-	}
-	public void setradius(double radius){
-		this.radius=radius;
-	}
+	//若不声明，在main中，子类是否可以调用超类的方法：sub.SetY()？->yes
 }
-class SubCircle extends Cricle{
-	private static double radius;
-	SubCircle(double x,double y,double radius){
-		super(x,y);
-		this.radius=radius;//子类的this调用的是子类的radius还是超类的？
-	}
-	public void setradius(double radius){//若不声明，在main中，子类是否可以调用超类的方法：sub.SetY()？
-		this.radius=radius;
-	}
-	public getradius(){
-		return radius;
-	}
+public class SubCircle {
+
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
-		SubCircle C1=new SubCircle(2,1,3);
+		sonCircle c1=new sonCircle(2,3,50);
+		System.out.println("子类圆的半径是："+c1.getradius());
+		System.out.println("子类圆心坐标是：（"+c1.getX()+"，"+c1.getY()+")");
 	}
-}
