@@ -30,9 +30,9 @@ class SubCircle extends Cricle{
 	private static double radius;
 	SubCircle(double x,double y,double radius){
 		super(x,y);
-		this.radius=radius;
+		this.radius=radius;//子类的this调用的是子类的radius还是超类的？
 	}
-	public void setradius(double radius){
+	public void setradius(double radius){//若不声明，在main中，子类是否可以调用超类的方法：sub.SetY()？
 		this.radius=radius;
 	}
 	public getradius(){
