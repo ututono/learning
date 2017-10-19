@@ -1,6 +1,6 @@
 package 实验二;
 
-public class Cricle {
+public class Circle {
 	private static double x,y,radius;
 	public Circle(double x,double y){
 		this.x=x;
