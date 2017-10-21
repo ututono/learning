@@ -1,0 +1,54 @@
+package 实验三;
+
+abstract class Shape1 {
+	String name;
+	abstract void GetArea();
+	abstract void GetLength();	
+	}
+final class Circle  extends Shape1 {
+	private double radius;
+	final double PI=3.1415926535;	
+	public Circle(String x,double radius){
+		this.radius=radius;
+		super.name=x;
+		}
+	public void GetArea(){
+		System.out.println(super.name+"圆的面积是:"+radius*radius*PI);
+	}
+	public void GetLength(){
+		System.out.println(super.name+"圆的周长是："+2*PI*radius);
+	}
+}
+final class Rectangle extends Shape1{
+	private double length;
+	private double width;
+	public Rectangle(String x, double length,double width){
+		this.length=length;
+		this.width=width;
+		super.name=x;
+	}
+	public void GetArea(){
+		System.out.println(super.name+"矩形的面积是："+length*width);
+	}
+	public void GetLength(){
+		System.out.println(super.name+"矩形的周长是："+2*(length+width));
+	}
+}
+class Shape{
+	 public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		/*Shape1[] f=new Shape1[2];
+		f[0]=new Circle();
+		f[1]=new Rectangle();
+		f[0].GetArea("dasjfio",5);*/
+		Circle x=new Circle("A",5);
+		x.GetArea();
+		x.GetLength();
+		Rectangle y=new Rectangle("长方形",3,4);
+		y.GetArea();
+		y.GetLength();
+		
+		
+	}
+}
+
