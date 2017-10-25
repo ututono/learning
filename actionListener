@@ -1,0 +1,58 @@
+package 实验四;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+//切换按钮的文字
+public class label_3 extends JFrame {
+	/**
+	 * @param
+	 */
+		private static final long serialVersionUID=1L;
+		JButton b1 =new JButton("切换");
+		JRadioButton r1=new JRadioButton ("普通");
+		JRadioButton r2=new JRadioButton ("黑体");
+		JRadioButton r3=new JRadioButton ("斜体");
+		ButtonGroup group=new ButtonGroup();
+		
+		
+		
+		public label_3(){
+			setTitle("切换");		//给窗口命名
+			getContentPane().setLayout(new FlowLayout(1,10,20));
+			getContentPane().add(b1);
+			group.add(r1);				//将单选框添加至组中
+			group.add(r2);
+			group.add(r3);
+			add(r1);
+			add(r2);
+			add(r3);
+			Actionevent A1=new Actionevent(Font.PLAIN);    //给每个字体构造一个对象，并将其设置为按钮监听器
+			Actionevent A2=new Actionevent(Font.BOLD);
+			Actionevent A3=new Actionevent(Font.ITALIC);
+			r1.addActionListener(A1);
+			r2.addActionListener(A2);
+			r3.addActionListener(A3);
+			this.setSize(800, 300);
+		}
+	    //@Override
+		class Actionevent implements ActionListener{
+			private int f;
+			Actionevent(int x){
+				this.f=x;
+			}
+	    	public void actionPerformed(ActionEvent e){
+	    		if(f==0) b1.setFont(new Font(b1.getName(),Font.PLAIN,20));   //如何不更改字号->如何获取Button文字的大小
+	    		else if(f==1) b1.setFont(new Font(b1.getName(),Font.BOLD,20));
+	    		else if(f==2) b1.setFont(new Font(b1.getName(),Font.ITALIC,20));
+	    	}
+		}
+		
+		
+		public static void main(String[] args){
+			label_3 frame =new label_3();
+			frame.setDefaultCloseOperation(3);
+			frame.setResizable(false);
+			//frame.pack();
+			frame.setVisible(true);
+	}
+}
