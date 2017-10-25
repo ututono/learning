@@ -72,3 +72,36 @@ r1.addActionListener(new Actionevent1());
 	    		 b1.setFont(new Font(b1.getName(),Font.ITALIC,20));
 	    	}
 		}
+		
+4.如果用addactionListerner(this),便不用创建监听器的类，直接重写actionPerformed(ActionEvent e) 
+##主类中需要继承actionListerner
+public class label extends JFrame implements ActionListener{
+	/**
+	 * @param
+	 */
+		private static final long serialVersionUID=1L;
+		JButton b1 =new JButton("切换");
+		JLabel a1=new JLabel("您好");
+		JLabel a2=new JLabel("asdf");
+		JRadioButton r1=new JRadioButton ("普通");
+		JRadioButton r2=new JRadioButton ("黑体");
+		JRadioButton r3=new JRadioButton ("斜体");
+		public label(){
+			setTitle("切换");		//给窗口命名
+			getContentPane().setLayout(new FlowLayout(1,10,20));
+			getContentPane().add(b1);
+			getContentPane().add(a1);
+			add(r1);
+			add(r2);
+			add(r3);
+			r1.addActionListener(this);
+			r2.addActionListener(this);
+			r3.addActionListener(this);
+			this.setSize(800, 300);
+		}
+		@Override
+		public void actionPerformed(ActionEvent e){
+			if(a1.getText()=="您好")
+				a1.setText("再见");
+			else a1.setText("您好");
+		}
